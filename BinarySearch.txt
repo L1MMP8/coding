@@ -1,0 +1,44 @@
+#include <iostream>
+#include<ctime>
+using namespace std;
+
+int SSH(int arr[], int N, int num)
+{
+	int L = 0;
+	int R = N - 1;
+
+
+	while (L <= R)
+	{
+		int M = L + (R - L) / 2;
+
+		if (arr[M] == num)
+		{
+			return M;
+		}
+		else if (arr[M] > num)
+		{
+			R = M - 1;
+		}
+		else 
+		{
+			L = M + 1;
+		}
+
+	}
+	return -1;
+
+}      
+
+int main()
+{
+	int num;
+	cin >> num;
+
+	int arr[]{ 1,5,8,11,13,15,19 };
+	int N = sizeof(arr) / sizeof(int);
+	int result = SSH(arr, N, num);
+
+	cout << num << endl << result << endl;
+
+}

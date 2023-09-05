@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+void merge(int* a, int* l, int nL, int* r, int nR)
+{
+	int nL = sizeof(l) / sizeof(int);
+	int nR = sizeof(r) / sizeof(int);
+
+	int i = 0, j = 0, k = 0;
+
+	while (i < nL && j < nR)
+	{
+		if (l[i] < r[j])
+			a[k++] = l[i++];
+		else
+			a[k++] = r[j++];
+	}
+	while (i < nL)
+	{
+		a[k++] = l[i++];
+	}
+	while (j < nR)
+	{
+		a[k++] = r[j++];
+	}
+}

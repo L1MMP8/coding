@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int const SIZE = 7;
+	int arr[SIZE]{ 0,7,3,5,9,4,1 };
+
+
+	for (int i = 0; i < SIZE - 1; i++)
+	{
+		for (int j = 0; j < SIZE - i - 1; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				int ss = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = ss;
+			}
+		}
+	}
+
+	for (int i = 0; i < SIZE; i++) {
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+}
