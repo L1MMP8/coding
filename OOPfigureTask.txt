@@ -1,0 +1,64 @@
+#include <iostream>
+using namespace std;
+
+
+class Figure
+{
+public:
+	virtual double area() const
+	{
+		return 0;
+	}
+};
+
+
+class Circle : public Figure
+{
+public:
+	Circle(double r) : radius(r) {}
+
+	double area() const //override
+	{
+		return 2 * 3.14 * radius;
+	}
+
+private:
+	double radius;
+};
+
+
+class Triangle : public Figure
+{
+public:
+	Triangle(double h, double s) : height(h), side(s) {}
+
+	double area() const //override
+	{
+		return ((height * side) * 1 / 2);
+	}
+
+private:
+	double height;
+	double side;
+};
+
+int main()
+{
+	/*
+	Circle c(4);
+	Triangle t(3, 5);
+
+	Figure* figure = &c;
+	cout << "Circle area: " << figure->area() << endl;
+
+	figure = &t;
+	cout << "Triangle area: " << figure->area() << endl;
+
+	Figure* figure[2] = { new Circle(4), new Triangle(3,5) };
+	for (int i = 0; i < 2; i++)
+	{
+		cout << " area: " << figure[i]->area() << endl;
+	}
+
+
+}
